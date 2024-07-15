@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcbncp050qipw"]
+
+[ext_resource type="PackedScene" uid="uid://x6picep6mr6x" path="res://prefabs/player.tscn" id="1_bbb48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4akk"]
+size = Vector2(1402, 30.75)
+
+[node name="main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_bbb48")]
+position = Vector2(691, 535)
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ground"]
+anchors_preset = -1
+anchor_left = 292.215
+anchor_top = 194.216
+anchor_right = 292.215
+anchor_bottom = 194.216
+offset_top = 768.0
+offset_right = 1400.0
+offset_bottom = 799.0
+color = Color(0.0901961, 0.388235, 0, 1)
+
+[node name="collision" type="CollisionShape2D" parent="ground"]
+position = Vector2(699, 784.375)
+shape = SubResource("RectangleShape2D_t4akk")
