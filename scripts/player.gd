@@ -23,7 +23,6 @@ func _physics_process(delta):
 func shoot():
 	var bullet = load_bullet.instantiate()
 	get_parent().add_child(bullet)
-	print("shooted")
 	bullet.position = $Marker.global_position
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
