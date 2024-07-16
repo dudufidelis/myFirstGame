@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bcbncp050qipw"]
 
 [ext_resource type="PackedScene" uid="uid://x6picep6mr6x" path="res://prefabs/player.tscn" id="1_bbb48"]
-[ext_resource type="PackedScene" uid="uid://cd3dojs6jjehl" path="res://prefabs/enemy.tscn" id="2_2c5bv"]
+[ext_resource type="PackedScene" uid="uid://bg3efcj5emy30" path="res://prefabs/enemy.tscn" id="2_2c5bv"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="3_5mn6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4akk"]
@@ -48,27 +48,6 @@ color = Color(0.0901961, 0.388235, 0, 1)
 [node name="collision" type="CollisionShape2D" parent="ground"]
 position = Vector2(699, 784.375)
 shape = SubResource("RectangleShape2D_t4akk")
-
-[node name="enemy" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(482, 124)
-
-[node name="enemy5" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(776, 94)
-
-[node name="enemy6" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(314, 116)
-
-[node name="enemy7" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(682, 248)
-
-[node name="enemy2" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(944, 280)
-
-[node name="enemy3" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(253, 273)
-
-[node name="enemy4" parent="." instance=ExtResource("2_2c5bv")]
-position = Vector2(1084, 137)
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -125,3 +104,20 @@ layout_mode = 2
 text = "0000
 "
 label_settings = SubResource("LabelSettings_080qb")
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(353, 287)
+
+[node name="enemy2" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(847, 254)
+
+[node name="enemy3" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(442, 175)
+
+[node name="enemy4" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(660, 171)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(1076, 162)

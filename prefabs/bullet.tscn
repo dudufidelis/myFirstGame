@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpuumxbmxf7hl"]
+[gd_scene load_steps=5 format=3 uid="uid://bpuumxbmxf7hl"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_hsmbh"]
 [ext_resource type="Texture2D" uid="uid://dqgkndkr37vx2" path="res://icon.svg" id="2_3wcbc"]
@@ -6,7 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_pg82m"]
 radius = 9.0
 
-[node name="bullet" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ig6cx"]
+radius = 9.0
+
+[node name="bullet" type="CharacterBody2D" groups=["player_bullet"]]
 script = ExtResource("1_hsmbh")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -21,4 +24,12 @@ shape = SubResource("CircleShape2D_pg82m")
 position = Vector2(9.53674e-07, 0)
 scale = Vector2(0.3, 0.3)
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ig6cx")
+
 [connection signal="screen_exited" from="notifier" to="." method="_on_notifier_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,16 +1,18 @@
-extends Area2D
+extends CharacterBody2D
 
+const speed = 300.0
 var score = 150
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+#func _physics_process(delta):
+	#var direction = 1
+	#if direction:
+		#velocity.x = direction * speed
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, speed)
+#
+	#move_and_slide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_body_entered(body):
-	Globals.score += score
-	queue_free()
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player_bullet"):
+		Globals.score += score
+		queue_free()
