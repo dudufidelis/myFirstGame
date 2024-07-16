@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcbncp050qipw"]
+[gd_scene load_steps=10 format=3 uid="uid://bcbncp050qipw"]
 
 [ext_resource type="PackedScene" uid="uid://x6picep6mr6x" path="res://prefabs/player.tscn" id="1_bbb48"]
 [ext_resource type="PackedScene" uid="uid://bg3efcj5emy30" path="res://prefabs/enemy.tscn" id="2_2c5bv"]
@@ -26,6 +26,9 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 24
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8vml"]
+size = Vector2(622, 23)
 
 [node name="main" type="Node2D"]
 
@@ -121,3 +124,23 @@ position = Vector2(660, 171)
 
 [node name="enemy5" parent="enemies" instance=ExtResource("2_2c5bv")]
 position = Vector2(1076, 162)
+
+[node name="screen_limit" type="RigidBody2D" parent="." groups=["screen_limit"]]
+position = Vector2(1406, -2)
+rotation = 1.5708
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_limit"]
+position = Vector2(301, 14.5001)
+shape = SubResource("RectangleShape2D_v8vml")
+
+[node name="screen_limit2" type="RigidBody2D" parent="." groups=["screen_limit"]]
+position = Vector2(22, 7)
+rotation = 1.5708
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_limit2"]
+position = Vector2(301, 14.5001)
+shape = SubResource("RectangleShape2D_v8vml")

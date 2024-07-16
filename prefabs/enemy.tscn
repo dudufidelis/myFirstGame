@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_n7bh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evc0l"]
-size = Vector2(86, 77)
+size = Vector2(40, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccxdp"]
 size = Vector2(85, 87)
@@ -14,19 +14,23 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_n7bh0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.5)
-shape = SubResource("RectangleShape2D_evc0l")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_lgx17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_evc0l")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_ccxdp")
+debug_color = Color(0.928577, 0.267162, 0, 0.42)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1, 58)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
