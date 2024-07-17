@@ -39,8 +39,8 @@ func _on_area_2d_body_entered(body):
 		changeDirection()
 
 func die():
-	dying_sfx.play()
 	Globals.score += score
+	dying_sfx.play()
 	queue_free()
 
 func _on_timer_timeout():
