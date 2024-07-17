@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg3efcj5emy30"]
+[gd_scene load_steps=6 format=3 uid="uid://bg3efcj5emy30"]
 
 [ext_resource type="Texture2D" uid="uid://dqgkndkr37vx2" path="res://icon.svg" id="1_lgx17"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_n7bh0"]
+[ext_resource type="AudioStream" uid="uid://c23g1kjwjxmnt" path="res://sounds/enemy_dying.mp3" id="3_g1gb2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evc0l"]
 size = Vector2(40, 32)
@@ -35,6 +36,9 @@ position = Vector2(-1, 63)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="dying_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g1gb2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://x6picep6mr6x"]
+[gd_scene load_steps=6 format=3 uid="uid://x6picep6mr6x"]
 
 [ext_resource type="Texture2D" uid="uid://dqgkndkr37vx2" path="res://icon.svg" id="1_5whk8"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_nguuj"]
+[ext_resource type="AudioStream" uid="uid://f6sjep4xs7kg" path="res://sounds/player_shoot.mp3" id="3_r016n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq5yy"]
 size = Vector2(54, 42.5)
@@ -33,6 +34,10 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_7oxhf")
+
+[node name="shoot_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r016n")
+volume_db = -10.0
 
 [connection signal="screen_exited" from="Notifier" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

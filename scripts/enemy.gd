@@ -5,6 +5,7 @@ var score = 150
 var life = 5
 var direction = 1
 var load_bullet = preload("res://prefabs/enemy_bullet.tscn")
+@onready var dying_sfx = $dying_sfx
 
 func _physics_process(delta):
 	if direction:
@@ -32,11 +33,15 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player_bullet"):
 		life -=1
 		if life == 0:
-			Globals.score += score
-			queue_free()
+			die()
 
 	if body.is_in_group("screen_limit"):
 		changeDirection()
+
+func die():
+	dying_sfx.play()
+	Globals.score += score
+	queue_free()
 
 func _on_timer_timeout():
 	randShoot()

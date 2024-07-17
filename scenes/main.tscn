@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcbncp050qipw"]
+[gd_scene load_steps=11 format=3 uid="uid://bcbncp050qipw"]
 
 [ext_resource type="PackedScene" uid="uid://x6picep6mr6x" path="res://prefabs/player.tscn" id="1_bbb48"]
 [ext_resource type="PackedScene" uid="uid://bg3efcj5emy30" path="res://prefabs/enemy.tscn" id="2_2c5bv"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="3_5mn6q"]
+[ext_resource type="AudioStream" uid="uid://6ls5al2wkras" path="res://sounds/songui.mp3" id="4_y7sjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4akk"]
 size = Vector2(1402, 30.75)
@@ -144,3 +145,8 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="screen_limit2"]
 position = Vector2(301, 14.5001)
 shape = SubResource("RectangleShape2D_v8vml")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_y7sjs")
+volume_db = -10.0
+autoplay = true

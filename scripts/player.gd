@@ -4,6 +4,7 @@ var speed = 500
 var gravity = 1000
 var load_bullet = preload("res://prefabs/bullet.tscn")
 var player_life = Globals.life
+@onready var shoot_sfx = $shoot_sfx
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -22,6 +23,7 @@ func _physics_process(delta):
 		shoot()
 
 func shoot():
+	shoot_sfx.play()
 	var bullet = load_bullet.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = $Marker.global_position
