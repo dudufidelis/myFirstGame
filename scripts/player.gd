@@ -33,7 +33,4 @@ func _on_area_2d_body_entered(body):
 	player_life -= 1
 	Globals.life = player_life
 	if player_life == 0:
-		print(player_life)
-		print(Globals.life)
-		
 		queue_free()
