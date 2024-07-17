@@ -9,7 +9,8 @@ radius = 13.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmgj0"]
 radius = 13.0384
 
-[node name="enemy_bullet" type="CharacterBody2D"]
+[node name="enemy_bullet" type="CharacterBody2D" groups=["enemy_bullet"]]
+collision_layer = 8
 script = ExtResource("1_efdjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

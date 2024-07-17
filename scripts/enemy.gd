@@ -4,9 +4,7 @@ const speed = 300.0
 var score = 150
 var life = 5
 var direction = 1
-var load_bullet = preload("res://prefabs/bullet.tscn")
-@onready var bulletPos = $Marker2D
-
+var load_bullet = preload("res://prefabs/enemy_bullet.tscn")
 
 func _physics_process(delta):
 	if direction:
@@ -15,18 +13,20 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
-	shoot_randomly()
-	
 
+func shoot():
+	var bullet = load_bullet.instantiate()
+	get_parent().add_child(bullet)
+	bullet.position = $Marker2D.global_position
 
-	
-func shoot_randomly():
-	var test = 3
-	if test > 0:
-		var bullet = load_bullet.instantiate()
-		get_parent().add_child(bullet)
-		bullet.position = bulletPos.global_position
-		test -= 1
+func randShoot():
+	var rand_number = randi() % 100
+	if rand_number > 50:
+		shoot()
+		changeDirection()
+
+func changeDirection():
+	direction *= -1
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player_bullet"):
@@ -36,8 +36,7 @@ func _on_area_2d_body_entered(body):
 			queue_free()
 
 	if body.is_in_group("screen_limit"):
-		print("chegou no limit")
-		if direction == 1:
-			direction *= -1
-		else:
-			direction *= -1
+		changeDirection()
+
+func _on_timer_timeout():
+	randShoot()

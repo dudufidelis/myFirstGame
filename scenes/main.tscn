@@ -35,7 +35,7 @@ size = Vector2(622, 23)
 [node name="player" parent="." instance=ExtResource("1_bbb48")]
 position = Vector2(691, 535)
 
-[node name="ground" type="StaticBody2D" parent="."]
+[node name="ground" type="StaticBody2D" parent="." groups=["ground"]]
 
 [node name="ColorRect" type="ColorRect" parent="ground"]
 anchors_preset = -1
@@ -111,19 +111,19 @@ label_settings = SubResource("LabelSettings_080qb")
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="enemy" parent="enemies" instance=ExtResource("2_2c5bv")]
-position = Vector2(353, 287)
+position = Vector2(106, 141)
 
 [node name="enemy2" parent="enemies" instance=ExtResource("2_2c5bv")]
-position = Vector2(847, 254)
-
-[node name="enemy3" parent="enemies" instance=ExtResource("2_2c5bv")]
-position = Vector2(442, 175)
-
-[node name="enemy4" parent="enemies" instance=ExtResource("2_2c5bv")]
-position = Vector2(660, 171)
+position = Vector2(107, 252)
 
 [node name="enemy5" parent="enemies" instance=ExtResource("2_2c5bv")]
-position = Vector2(1076, 162)
+position = Vector2(106, 201)
+
+[node name="enemy6" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(108, 386)
+
+[node name="enemy4" parent="enemies" instance=ExtResource("2_2c5bv")]
+position = Vector2(107, 361)
 
 [node name="screen_limit" type="RigidBody2D" parent="." groups=["screen_limit"]]
 position = Vector2(1406, -2)

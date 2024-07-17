@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 500
 var gravity = 1000
 var load_bullet = preload("res://prefabs/bullet.tscn")
+var player_life = Globals.life
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -27,3 +28,13 @@ func shoot():
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
+
+func _on_area_2d_body_entered(body):
+	print("entrou")
+	player_life -= 1
+	Globals.life = player_life
+	if player_life == 0:
+		print(player_life)
+		print(Globals.life)
+		
+		queue_free()

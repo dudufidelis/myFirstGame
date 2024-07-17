@@ -7,7 +7,7 @@
 size = Vector2(40, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccxdp"]
-size = Vector2(85, 87)
+size = Vector2(87, 88)
 
 [node name="enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
@@ -26,11 +26,15 @@ shape = SubResource("RectangleShape2D_evc0l")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ccxdp")
 debug_color = Color(0.928577, 0.267162, 0, 0.42)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1, 58)
+position = Vector2(-1, 63)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
