@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3oydirylyx78"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_8usd2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2bnt"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+expand_margin_left = 80.0
+expand_margin_top = 10.0
+expand_margin_right = 80.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_7df2r"]
+default_font_size = 80
+Button/styles/normal = SubResource("StyleBoxFlat_i2bnt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2yho"]
+
+[node name="title_screen" type="CanvasLayer"]
+script = ExtResource("1_8usd2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="play_btn" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7df2r")
+text = "Play
+"
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_v2yho")
+
+[node name="quit_btn" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7df2r")
+text = "Quit game"
+
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/VBoxContainer/play_btn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
