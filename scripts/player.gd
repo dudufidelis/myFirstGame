@@ -36,3 +36,4 @@ func _on_area_2d_body_entered(body):
 	Globals.life = player_life
 	if player_life == 0:
 		queue_free()
+		get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
