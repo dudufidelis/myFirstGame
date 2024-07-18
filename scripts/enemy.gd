@@ -8,11 +8,7 @@ var load_bullet = preload("res://prefabs/enemy_bullet.tscn")
 @onready var dying_sfx = $dying_sfx
 
 func _physics_process(delta):
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-
+	velocity.x = direction * speed
 	move_and_slide()
 
 func shoot():
