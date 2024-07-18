@@ -45,3 +45,6 @@ func die():
 
 func _on_timer_timeout():
 	randShoot()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	die()

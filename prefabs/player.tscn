@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://x6picep6mr6x"]
+[gd_scene load_steps=7 format=3 uid="uid://x6picep6mr6x"]
 
 [ext_resource type="Texture2D" uid="uid://dqgkndkr37vx2" path="res://icon.svg" id="1_5whk8"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_nguuj"]
 [ext_resource type="AudioStream" uid="uid://f6sjep4xs7kg" path="res://sounds/player_shoot.mp3" id="3_r016n"]
+[ext_resource type="AudioStream" uid="uid://c23g1kjwjxmnt" path="res://sounds/enemy_dying.mp3" id="4_xmse5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq5yy"]
 size = Vector2(54, 42.5)
@@ -37,6 +38,10 @@ shape = SubResource("RectangleShape2D_7oxhf")
 
 [node name="shoot_sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_r016n")
+volume_db = -10.0
+
+[node name="damage_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xmse5")
 volume_db = -10.0
 
 [connection signal="screen_exited" from="Notifier" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

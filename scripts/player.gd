@@ -5,6 +5,7 @@ var gravity = 1000
 var load_bullet = preload("res://prefabs/bullet.tscn")
 var player_life = Globals.life
 @onready var shoot_sfx = $shoot_sfx
+@onready var damage_sfx = $damage_sfx
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -33,6 +34,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_body_entered(body):
 	player_life -= 1
+	damage_sfx.play()
 	Globals.life = player_life
 	if player_life == 0:
 		queue_free()

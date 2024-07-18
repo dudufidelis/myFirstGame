@@ -25,6 +25,15 @@ window/size/viewport_width=1400
 window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://prefabs/": "red",
+"res://scenes/": "gray",
+"res://scripts/": "yellow",
+"res://sounds/": "gray"
+}
+
 [input]
 
 left={
