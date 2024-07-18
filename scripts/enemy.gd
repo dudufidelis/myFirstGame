@@ -36,6 +36,7 @@ func _on_area_2d_body_entered(body):
 
 func die():
 	Globals.score += score
+	Globals.enemies_dead += 1
 	dying_sfx.play()
 	queue_free()
 
